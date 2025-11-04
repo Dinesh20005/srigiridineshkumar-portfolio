@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Srigiri Dinesh Kumar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind Configuration for defined colors and font
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: { 
+                        'primary': '#4f46e5', // Indigo 600
+                        'secondary': '#facc15', // Amber 400
+                        'dark-bg': '#1f2937', // Gray 800 (used for Hero/Contact sections)
+                        'dark-card': '#374151', // Gray 700 (used for footer/inputs)
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* General styling for smooth scrolling and clean look */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        .header-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); }
+        
+        /* Mobile Menu Transition (slide-out effect) */
+        #mobile-menu { transition: transform 0.3s ease-out; transform: translateX(100%); }
+        #mobile-menu.open { transform: translateX(0); }
+
+        /* Custom scrollbar for subtle professional touch */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f3f4f6; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <!-- Navigation Bar --><header class="sticky top-0 z-50 bg-white header-shadow">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-2xl font-extrabold text-primary tracking-wider">DINESH KUMAR</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-primary transition">About</a>
+                    <a href="#skills" class="text-gray-600 hover:text-primary transition">Skills</a>
+                    <a href="#projects" class="text-gray-600 hover:text-primary transition">Projects</a>
+                    <a href="#education" class="text-gray-600 hover:text-primary transition">Education</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary transition">Contact</a>
+                </div>
+                <!-- Menu Button for Mobile --><button id="menu-button" class="md:hidden p-2 rounded-md text-gray-500 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Open menu">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu Dropdown Panel --><div id="mobile-menu" class="fixed inset-0 bg-white z-40 md:hidden pt-16">
+            <div class="px-5 py-4 space-y-4">
+                <a href="#about" class="block text-xl font-medium text-gray-700 hover:text-primary" onclick="closeMenu()">About</a>
+                <a href="#skills" class="block text-xl font-medium text-gray-700 hover:text-primary" onclick="closeMenu()">Skills</a>
+                <a href="#projects" class="block text-xl font-medium text-gray-700 hover:text-primary" onclick="closeMenu()">Projects</a>
+                <a href="#education" class="block text-xl font-medium text-gray-700 hover:text-primary" onclick="closeMenu()">Education</a>
+                <a href="#contact" class="block text-xl font-medium text-gray-700 hover:text-primary" onclick="closeMenu()">Contact</a>
+            </div>
+            <!-- Close Button for Mobile Menu --><button id="close-menu-button" class="absolute top-4 right-4 p-2 rounded-md text-gray-500 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Close menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section --><section id="hero" class="py-20 md:py-32 bg-dark-bg text-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-3/5 text-center md:text-left">
+                    <p class="text-secondary text-lg font-semibold mb-2">Hello, I'm Srigiri Dinesh Kumar</p>
+                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+                        A <span class="text-primary">Full Stack Developer</span> focused on modern web solutions.
+                    </h1>
+                    <p class="text-gray-300 text-xl mb-8 max-w-lg mx-auto md:mx-0">
+                        I build responsive, user-friendly, and scalable applications with expertise in **React.js** and **Node.js/MongoDB**.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#projects" class="px-8 py-3 bg-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-indigo-700 transition transform hover:scale-105">
+                            View Projects
+                        </a>
+                        <a href="#contact" class="px-8 py-3 bg-white text-dark-bg text-lg font-semibold rounded-lg shadow-lg hover:bg-gray-200 transition transform hover:scale-105">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <!-- Profile Photo -->
+                <div class="md:w-2/5 flex justify-center">
+                    <div class="w-64 h-64 bg-dark-card rounded-full border-4 border-primary shadow-2xl overflow-hidden">
+                        <img src="profil.jpg" alt="Srigiri Dinesh Kumar Profile Picture" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section --><section id="about" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12">About <span class="text-primary">Me</span></h2>
+                <div class="max-w-4xl mx-auto text-lg text-gray-700 space-y-6">
+                    <p>
+                        I am an aspiring **Computer Science and Engineering (B.Tech.)** student at Lovely Professional University, driven by a passion for **full-stack web development** and **data structures and algorithms (DSA)**. My academic journey is focused on building foundational knowledge in computer science while actively applying skills to real-world projects.
+                    </p>
+                    <p>
+                        My technical foundation spans **HTML, CSS, JavaScript, and Java**, with practical experience in modern stacks including **React.js and Node.js**. I am proficient in database management using **MySQL and MongoDB**. I am dedicated to **problem-solving**, **project management**, and **adaptability**, thriving on turning complex challenges into seamless digital solutions.
+                    </p>
+                    <p>
+                        I believe in continuous learning, which is reflected in my certifications in Web Development, DSA, C++, and IBM DevOps. I am actively seeking opportunities to contribute my skills to impactful and scalable projects.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section --><section id="skills" class="py-20 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12">Technical <span class="text-primary">Skills</span></h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    
+                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+                        <h3 class="text-xl font-semibold mb-3 text-primary">Languages</h3>
+                        <p class="text-sm text-gray-600">HTML, CSS, JavaScript, **Java**, C++</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+                        <h3 class="text-xl font-semibold mb-3 text-primary">Frameworks & Backend</h3>
+                        <p class="text-sm text-gray-600">**React.js, Node.js**, Express.js, Bootstrap</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+                        <h3 class="text-xl font-semibold mb-3 text-primary">Databases</h3>
+                        <p class="text-sm text-gray-600">**MySQL**, **MongoDB**</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+                        <h3 class="text-xl font-semibold mb-3 text-primary">Tools & Concepts</h3>
+                        <p class="text-sm text-gray-600">Visual Studio Code, GitHub, DSA, Problem-Solving, Adaptability</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section --><section id="projects" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12">Featured <span class="text-primary">Projects</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition hover:shadow-2xl group">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Gadget Zone Store (E-Commerce)</h3>
+                            <p class="text-gray-600 mb-4">Responsive eCommerce site featuring dynamic listings, a functional shopping cart, and seamless navigation.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">React.js</span>
+                                <span class="text-xs font-medium bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">JavaScript</span>
+                            </div>
+                            <button onclick="openProjectModal('ecommerce')" class="inline-flex items-center text-primary font-semibold hover:text-indigo-700 transition">
+                                View Details
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition hover:shadow-2xl group">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Full-Stack Portfolio Site</h3>
+                            <p class="text-gray-600 mb-4">Developed a full-stack site using the **MERN stack**, with a mobile-friendly frontend and API integration for real-time contact form submissions.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Node.js/Express</span>
+                                <span class="text-xs font-medium bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">MongoDB</span>
+                            </div>
+                            <button onclick="openProjectModal('portfolio')" class="inline-flex items-center text-primary font-semibold hover:text-indigo-700 transition">
+                                View Details
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition hover:shadow-2xl group">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Dynamic Gym Website</h3>
+                            <p class="text-gray-600 mb-4">Fully responsive and interactive website designed using core front-end languages. Developed reusable components and optimized for performance.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs font-medium bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">HTML/CSS</span>
+                                <span class="text-xs font-medium bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">JavaScript</span>
+                            </div>
+                            <button onclick="openProjectModal('gym')" class="inline-flex items-center text-primary font-semibold hover:text-indigo-700 transition">
+                                View Details
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications Section --><section id="education" class="py-20 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12">Education & <span class="text-primary">Certifications</span></h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Education Column --><div>
+                        <h3 class="text-3xl font-bold text-dark-bg mb-6 border-b pb-2">Academic History</h3>
+                        
+                        <!-- LPU --><div class="mb-8 p-6 bg-white rounded-xl shadow-lg border-l-4 border-primary">
+                            <p class="text-sm font-semibold text-primary mb-1">Aug 2022 - Present</p>
+                            <h4 class="text-xl font-bold text-gray-800">Bachelor of Technology (C.S.E.)</h4>
+                            <p class="text-gray-600">Lovely Professional University, Phagwara, Punjab</p>
+                            <p class="text-sm text-gray-500 mt-2">CGPA: 6.95</p>
+                        </div>
+                        
+                        <!-- Bhashyam Junior College --><div class="mb-8 p-6 bg-white rounded-xl shadow-lg border-l-4 border-secondary">
+                            <p class="text-sm font-semibold text-secondary mb-1">Apr 2020 - May 2022</p>
+                            <h4 class="text-xl font-bold text-gray-800">Intermediate</h4>
+                            <p class="text-gray-600">Bhashyam Junior College, Hyderabad, Telangana</p>
+                            <p class="text-sm text-gray-500 mt-2">Percentage: 85%</p>
+                        </div>
+                        
+                        <!-- Bhashyam High School --><div class="p-6 bg-white rounded-xl shadow-lg border-l-4 border-secondary">
+                            <p class="text-sm font-semibold text-secondary mb-1">Apr 2019 - Mar 2020</p>
+                            <h4 class="text-xl font-bold text-gray-800">Matriculation</h4>
+                            <p class="text-gray-600">Bhashyam High School, Hyderabad, Telangana</p>
+                            <p class="text-sm text-gray-500 mt-2">Percentage: 100%</p>
+                        </div>
+                    </div>
+
+                    <!-- Certifications Column --><div>
+                        <h3 class="text-3xl font-bold text-dark-bg mb-6 border-b pb-2">Online Certifications</h3>
+                        <div class="space-y-4">
+                            
+                            <div class="p-4 bg-white rounded-lg shadow-md flex items-center space-x-4">
+                                <div class="w-2 h-full bg-primary rounded-full hidden sm:block flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">HTML, CSS, and JavaScript for Web Developers</p>
+                                    <p class="text-sm text-gray-600">Coursera | May 2024</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-white rounded-lg shadow-md flex items-center space-x-4">
+                                <div class="w-2 h-full bg-primary rounded-full hidden sm:block flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Data Structures & Algorithms - Self Paced</p>
+                                    <p class="text-sm text-gray-600">GeeksforGeeks | Jul 2024</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-white rounded-lg shadow-md flex items-center space-x-4">
+                                <div class="w-2 h-full bg-primary rounded-full hidden sm:block flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Programming in C++: A Hands-on Introduction</p>
+                                    <p class="text-sm text-gray-600">Coursera | Feb 2024</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-white rounded-lg shadow-md flex items-center space-x-4">
+                                <div class="w-2 h-full bg-primary rounded-full hidden sm:block flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">IBM DevOps and Software Engineering</p>
+                                    <p class="text-sm text-gray-600">Coursera | Apr 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section --><section id="contact" class="py-20 bg-dark-bg text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-4">Ready to collaborate?</h2>
+                <p class="text-gray-300 text-xl mb-4">I'm currently open to new opportunities and interesting projects. Feel free to reach out!</p>
+                <p class="text-gray-300 text-xl mb-12">Email: <a href="mailto:dineshsrigiri@gmail.com" class="text-primary hover:text-secondary font-medium">dineshsrigiri@gmail.com</a></p>
+
+                <!-- Contact Form (using FormSubmit for easy setup) --><form 
+                    action="https://formsubmit.co/dineshsrigiri@gmail.com" 
+                    method="POST" 
+                    class="space-y-6 text-left max-w-lg mx-auto"
+                    onsubmit="event.preventDefault(); showContactMessage(); this.submit();"
+                >
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-dark-card border border-gray-600 rounded-lg text-white focus:ring-primary focus:border-primary transition">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                        <input type="email" id="email" name="_replyto" required class="w-full px-4 py-3 bg-dark-card border border-gray-600 rounded-lg text-white focus:ring-primary focus:border-primary transition">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-dark-card border border-gray-600 rounded-lg text-white focus:ring-primary focus:border-primary transition"></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-6 py-3 bg-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-indigo-700 transition transform hover:scale-[1.01]">
+                        Send Message
+                    </button>
+                    <!-- FormSubmit Configuration --><input type="hidden" name="_next" value="https://your-portfolio-url.com/#contact"> 
+                    <input type="hidden" name="_captcha" value="false">
+                </form>
+
+                <!-- Contact Success Message Modal --><div id="contact-message" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+                    <div class="bg-white p-8 rounded-xl shadow-2xl max-w-md w-full text-center text-gray-900">
+                        <h3 class="text-2xl font-bold mb-4 text-primary">Thank You!</h3>
+                        <p class="mb-6">Your message has been received. I will get back to you shortly.</p>
+                        <button onclick="closeContactMessage()" class="px-6 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-indigo-700 transition">Close</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Details Modal --><div id="project-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-[60] p-4" onclick="closeProjectModal()">
+        <div id="project-modal-content" class="bg-white p-8 rounded-xl shadow-2xl max-w-2xl w-full text-gray-900 transform transition-all duration-300 scale-95" onclick="event.stopPropagation()">
+            <h3 id="modal-title" class="text-3xl font-bold text-primary mb-4 border-b pb-2"></h3>
+            <p id="modal-technologies" class="text-sm font-medium text-gray-500 mb-4"></p>
+            <div id="modal-description" class="text-gray-700 space-y-4"></div>
+            <button onclick="closeProjectModal()" class="mt-8 px-6 py-2 bg-dark-card text-white font-semibold rounded-lg hover:bg-gray-700 transition">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer --><footer class="bg-dark-card py-8 text-gray-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Srigiri Dinesh Kumar. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <!-- LinkedIn Link --><a href="https://www.linkedin.com/in/srigiridinesh/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary transition" aria-label="LinkedIn">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.57-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <!-- GitHub Link --><a href="https://github.com/srigiridinesh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary transition" aria-label="GitHub">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.864 8.165 6.837 9.49.5.092.682-.217.682-.483 0-.237-.009-.865-.014-1.693-2.782.603-3.37-1.34-3.37-1.34-.454-1.157-1.11-1.464-1.11-1.464-.908-.62.068-.608.068-.608 1.007.07 1.532 1.034 1.532 1.034.896 1.53 2.348 1.087 2.913.832.091-.647.35-1.087.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.983 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.024A9.155 9.155 0 0112 7.643c.854 0 1.705.115 2.505.341 1.908-1.292 2.747-1.024 2.747-1.024.546 1.372.203 2.386.098 2.638.64.692 1.028 1.584 1.028 2.675 0 3.838-2.339 4.685-4.562 4.935.359.309.678.92.678 1.854 0 1.336-.012 2.413-.012 2.748 0 .269.18.57.688.484C21.139 20.162 24 16.416 24 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Project Data for Modal - Populated from CV
+        const projectData = {
+            ecommerce: {
+                title: "Gadget Zone Store (E-Commerce)",
+                tech: "HTML, CSS, JavaScript, React.js",
+                description: [
+                    "Created a responsive eCommerce platform featuring dynamic product listings and a fully functional shopping cart.",
+                    "Implemented robust state management using React to handle real-time cart operations, ensuring a smooth and responsive shopping experience.",
+                    "Integrated reusable components and optimized the code base for high performance and enhanced scalability, setting a foundation for future feature expansion."
+                ]
+            },
+            portfolio: {
+                title: "Full-Stack Portfolio Site (Node/Express/MongoDB)",
+                tech: "Node.js, Express.js, MongoDB, HTML, CSS, JavaScript (Bootstrap)",
+                description: [
+                    "Developed a complete full-stack website leveraging the MERN stack (MongoDB, Express.js, Node.js) for robust architecture.",
+                    "Engineered a responsive and mobile-friendly frontend using Bootstrap to guarantee an optimal user experience across all device sizes.",
+                    "Integrated dynamic API communication (Axios) and used EmailJS for seamless, real-time contact form submissions."
+                ]
+            },
+            gym: {
+                title: "Dynamic Gym Website (Vanilla JS)",
+                tech: "HTML, CSS, JavaScript (Vanilla)",
+                description: [
+                    "Designed a fully responsive and interactive gym website, focusing on seamless accessibility and a high-quality user experience.",
+                    "Developed reusable components for key features like workout schedules, login forms, and contact sections, significantly reducing maintenance time.",
+                    "Optimized overall website performance and accessibility by adhering to best practices, resulting in enhanced loading speed and usability."
+                ]
+            }
+        };
+
+        // DOM Elements
+        const menuButton = document.getElementById('menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const contactMessage = document.getElementById('contact-message'); 
+        const projectModal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalTech = document.getElementById('modal-technologies');
+        const modalDescription = document.getElementById('modal-description');
+
+        // Navigation Logic
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            mobileMenu.classList.remove('hidden');
+            menuButton.classList.add('hidden');
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            // Give time for the slide transition before hiding
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+                menuButton.classList.remove('hidden');
+            }, 300);
+        }
+
+        menuButton.addEventListener('click', openMenu);
+        closeMenuButton.addEventListener('click', closeMenu);
+        
+        // Close menu when a link inside it is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        window.addEventListener('load', () => {
+             // Ensure menu is hidden on initial load for wide screens
+             mobileMenu.classList.add('hidden');
+        });
+
+        // Contact Form Logic (Modal Display)
+        function showContactMessage() {
+            // Display the success modal
+            contactMessage.classList.remove('hidden');
+            contactMessage.classList.add('flex'); 
+            
+            // Clear the form fields after submission is handled by FormSubmit action
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+        }
+
+        function closeContactMessage() {
+            contactMessage.classList.add('hidden');
+            contactMessage.classList.remove('flex');
+        }
+        
+        // Project Modal Logic
+        function openProjectModal(id) {
+            const data = projectData[id];
+            
+            modalTitle.textContent = data.title;
+            modalTech.textContent = `Key Technologies: ${data.tech}`;
+            
+            // Clear previous description and add new points
+            modalDescription.innerHTML = '';
+            data.description.forEach(point => {
+                const p = document.createElement('p');
+                p.textContent = `• ${point}`;
+                modalDescription.appendChild(p);
+            });
+
+            projectModal.classList.remove('hidden');
+            projectModal.classList.add('flex'); 
+        }
+
+        function closeProjectModal() {
+            projectModal.classList.add('hidden');
+            projectModal.classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
